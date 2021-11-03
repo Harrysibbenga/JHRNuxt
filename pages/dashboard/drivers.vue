@@ -427,7 +427,7 @@
 </template>
 
 <script>
-import { driversCollection, imageCollection } from "../../../firebase";
+import { driversCollection, imageCollection } from "@/services/firebase";
 import {
   mdbInput,
   mdbBtn,

@@ -104,7 +104,7 @@
 </template>
 
 <script>
-import { imageCollection, aboutPage } from "../../../firebase";
+import { imageCollection, aboutPage } from "@/services/firebase";
 import {
   mdbBtn,
   mdbContainer,

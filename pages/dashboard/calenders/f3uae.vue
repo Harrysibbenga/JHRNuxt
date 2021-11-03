@@ -276,7 +276,7 @@ import {
   imageCollection,
   formula3Collection,
   circuitsCollection
-} from "../../../firebase";
+} from "@/services/firebase";
 import {
   mdbInput,
   mdbBtn,

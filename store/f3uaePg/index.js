@@ -1,4 +1,4 @@
-import { marketingPage } from '@/services/firebase'
+import { f3UaePg } from '@/services/firebase'
 
 export const state = () => ({
   content: {},
@@ -12,7 +12,7 @@ export const mutations = {
 
 export const actions = {
   setContent({ commit }) {
-    marketingPage.onSnapshot((querySnapshot) => {
+    f3UaePg.onSnapshot((querySnapshot) => {
       const contentArray = []
 
       querySnapshot.forEach((doc) => {

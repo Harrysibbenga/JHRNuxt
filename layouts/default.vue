@@ -9,17 +9,21 @@
 <script>
 export default {
    created() {
-    this.$store.dispatch("videoSection/setVideo");
-    this.$store.dispatch("videos/setVideos");
     this.$store.dispatch("posts/setPosts");
-    this.$store.dispatch("profile/setProfile");
-    this.$store.dispatch("media/setMedia");
-    this.$store.dispatch("calendar/setFixtures");
+    this.$store.dispatch("drivers/setDrivers");
+    this.$store.dispatch("f3uae/setFixtures");
+    this.$store.dispatch("f4uae/setFixtures");
+    this.$store.dispatch("gb3/setFixtures");
+    this.$store.dispatch("gb4/setFixtures");
     this.$store.dispatch("circuits/setCircuits");
     this.$store.dispatch("images/setImages");
-    this.$store.dispatch("fanclub/setContent");
-    this.$store.dispatch("partners/setContent");
-    this.$store.dispatch("marketing/setContent");
+    this.$store.dispatch("carousel/setImages");
+    this.$store.dispatch("about/setContent");
+    this.$store.dispatch("sim/setContent");
+    this.$store.dispatch("f3uaePg/setContent");
+    this.$store.dispatch("f4uaePg/setContent");
+    this.$store.dispatch("gb3Pg/setContent");
+    this.$store.dispatch("gb4Pg/setContent");
   },
 }
 </script>

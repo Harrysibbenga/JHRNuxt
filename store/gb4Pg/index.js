@@ -1,4 +1,4 @@
-import { fanclubPage } from '@/services/firebase'
+import { gb4Pg } from '@/services/firebase'
 
 export const state = () => ({
   content: {},
@@ -12,7 +12,7 @@ export const mutations = {
 
 export const actions = {
   setContent({ commit }) {
-    fanclubPage.onSnapshot((querySnapshot) => {
+    gb4Pg.onSnapshot((querySnapshot) => {
       const contentArray = []
 
       querySnapshot.forEach((doc) => {

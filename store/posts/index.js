@@ -1,12 +1,11 @@
 import moment from 'moment'
-import { postsCollection, newsPage } from '@/services/firebase'
+import { postsCollection } from '@/services/firebase'
 
 export const state = () => ({
   allPosts: [],
   publishedPosts: [],
   post: null,
   postsByYear: [],
-  page: null,
 })
 
 export const mutations = {
@@ -36,13 +35,6 @@ export const mutations = {
       state.publishedPosts = val
     } else {
       state.publishedPosts = null
-    }
-  },
-  setPage(state, val) {
-    if (val) {
-      state.page = val
-    } else {
-      state.page = null
     }
   },
   clearPost(state) {
@@ -102,6 +94,16 @@ export const actions = {
               console.error('Error updating document: ', error)
             })
         }
+        if (!post.gallery) {
+          postsCollection.doc(post.id).update({
+            gallery: [],
+          })
+        }
+        if (!post.quoteContent) {
+          postsCollection.doc(post.id).update({
+            quoteContent: '',
+          })
+        }
         postsArray.push(post)
       })
       commit('setPosts', postsArray)
@@ -109,31 +111,6 @@ export const actions = {
         'setPublishedPosts',
         postsArray.filter((post) => now >= post.published)
       )
-    })
-
-    postsCollection.orderBy('published', 'desc').onSnapshot((querySnapshot) => {
-      const postsArray = []
-      const now = moment().format()
-
-      querySnapshot.forEach((doc) => {
-        const post = doc.data()
-        post.id = doc.id
-        if (now >= post.published) {
-          postsArray.push(post)
-        }
-      })
-      commit('setPublishedPosts', postsArray)
-    })
-
-    newsPage.onSnapshot((querySnapshot) => {
-      const postsArray = []
-
-      querySnapshot.forEach((doc) => {
-        const post = doc.data()
-        post.id = doc.id
-        postsArray.push(post)
-      })
-      commit('setPage', postsArray[0])
     })
   },
   setPostsByYear({ commit }, year) {

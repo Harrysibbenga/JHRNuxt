@@ -1,4 +1,4 @@
-import { calendarCollection } from '@/services/firebase'
+import { f3UaeCollection } from '@/services/firebase'
 
 export const state = () => ({
   fixtures: [],
@@ -16,7 +16,7 @@ export const mutations = {
 
 export const actions = {
   setFixture({ commit }, id) {
-    calendarCollection
+    f3UaeCollection
       .doc(id)
       .get()
       .then((doc) => {
@@ -26,7 +26,7 @@ export const actions = {
       })
   },
   setFixtures({ commit }) {
-    calendarCollection.orderBy('date').onSnapshot((querySnapshot) => {
+    f3UaeCollection.orderBy('date').onSnapshot((querySnapshot) => {
       const fixturesArray = []
 
       querySnapshot.forEach((doc) => {

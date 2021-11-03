@@ -8,7 +8,7 @@
           <img v-else :src="defaultImage" alt="Placeholder image" class="img-fluid" />
         </mdb-col>
       </mdb-row>
-      <form @submit.prevent="submitForm" class="pt-2 row">
+      <form class="pt-2 row" @submit.prevent="submitForm">
         <div class="md-form col-12 p-0 text-center">
           <mdb-btn color="primary" class="ml-3" inline @click="newImage">Simulator Image</mdb-btn>
         </div>
@@ -56,30 +56,30 @@
         <div class="row">
           <div class="col-12">
             <div class="md-form">
-              <mdb-input label="Description" inline v-model.trim="img.alt" />
+              <mdb-input v-model.trim="img.alt" label="Description" inline />
             </div>
           </div>
           <div class="col-12">
             <div class="input-group">
               <div class="input-group-prepend">
-                <span class="input-group-text" id="imageInput">Upload</span>
+                <span id="imageInput" class="input-group-text">Upload</span>
               </div>
               <div class="custom-file">
                 <input
+                  id="imageInput"
+                  ref="imageInput"
                   type="file"
                   class="custom-file-input"
-                  id="imageInput"
                   aria-describedby="imageInput"
-                  @change="checkFile($event)"
-                  ref="imageInput"
                   accept="image/jpeg image/png"
+                  @change="checkFile($event)"
                 />
                 <label
+                  v-if="file.name"
                   class="custom-file-label"
                   for="inputGroupFile01"
-                  v-if="file.name"
                 >{{ file.name }}</label>
-                <label class="custom-file-label" for="inputGroupFile01" v-else>Image</label>
+                <label v-else class="custom-file-label" for="inputGroupFile01">Image</label>
               </div>
             </div>
           </div>
@@ -103,7 +103,6 @@
 </template>
 
 <script>
-import { imageCollection, simPage } from "../../../firebase";
 import {
   mdbBtn,
   mdbContainer,
@@ -116,7 +115,20 @@ import {
   mdbModal,
   mdbInput,
 } from "mdbvue";
+import { imageCollection, simPage } from "@/services/firebase";
 export default {
+  components: {
+    mdbBtn,
+    mdbContainer,
+    mdbCol,
+    mdbRow,
+    mdbModalHeader,
+    mdbModalTitle,
+    mdbModalBody,
+    mdbModalFooter,
+    mdbModal,
+    mdbInput,
+  },
   data() {
     return {
       sim: {
@@ -142,18 +154,6 @@ export default {
         "https://firebasestorage.googleapis.com/v0/b/jhr-developments-c5bba.appspot.com/o/images%2Fimg-placeholder.png?alt=media&token=7d9c5978-d45d-4049-91d9-ceb235823db7",
     };
   },
-  components: {
-    mdbBtn,
-    mdbContainer,
-    mdbCol,
-    mdbRow,
-    mdbModalHeader,
-    mdbModalTitle,
-    mdbModalBody,
-    mdbModalFooter,
-    mdbModal,
-    mdbInput,
-  },
   computed: {
     simContent() {
       return this.$store.getters["sim/getContent"];
@@ -164,6 +164,11 @@ export default {
     updatedImage() {
       return this.$store.getters["images/getImage"];
     },
+  },
+  created() {
+    setTimeout(() => {
+      this.sim = this.simContent;
+    }, 2000);
   },
   methods: {
     reset() {
@@ -230,14 +235,14 @@ export default {
               this.uploadImage = false;
               this.img.content = doc.data();
               this.img.id = doc.id;
-              return;
+
             }
           });
         });
     },
     saveFile() {
-      if (this.type == "new") {
-        let payload = {};
+      if (this.type === "new") {
+        const payload = {};
         payload.file = this.file;
         payload.alt = this.img.alt;
         this.$store.dispatch("images/uploadImage", payload);
@@ -259,7 +264,7 @@ export default {
       this.img.alt = "";
     },
     confirmUse() {
-      if (this.type == "new") {
+      if (this.type === "new") {
         this.sim.imgId = this.img.id;
         this.existsModal = false;
         this.sim.url = this.img.content.url;
@@ -277,11 +282,6 @@ export default {
       this.file = "";
       this.img.alt = "";
     },
-  },
-  created() {
-    setTimeout(() => {
-      this.sim = this.simContent;
-    }, 2000);
   },
 };
 </script>

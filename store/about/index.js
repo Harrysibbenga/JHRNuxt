@@ -1,4 +1,4 @@
-import { partnersPage } from '@/services/firebase'
+import { aboutPage } from '@/services/firebase'
 
 export const state = () => ({
   content: {},
@@ -12,7 +12,7 @@ export const mutations = {
 
 export const actions = {
   setContent({ commit }) {
-    partnersPage.onSnapshot((querySnapshot) => {
+    aboutPage.onSnapshot((querySnapshot) => {
       const contentArray = []
 
       querySnapshot.forEach((doc) => {

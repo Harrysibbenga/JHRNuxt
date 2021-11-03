@@ -119,7 +119,7 @@
 </template>
 
 <script>
-import { imageCollection, f4Page } from "../../../firebase";
+import { imageCollection, f4Page } from "@/services/firebase";
 import {
   mdbBtn,
   mdbContainer,

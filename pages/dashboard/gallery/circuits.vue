@@ -152,7 +152,7 @@
 </template>
 
 <script>
-import { imageCollection, circuitsCollection } from "../../../firebase";
+import { imageCollection, circuitsCollection } from "@/services/firebase";
 import {
   mdbInput,
   mdbBtn,
