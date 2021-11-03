@@ -1,0 +1,52 @@
+@import url("https://use.typekit.net/ahh2zbc.css");
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: sweet-sans-pro,
+        sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+p {
+    line-height: 2.5rem;
+    margin: 0;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    font-family: sweet-sans-pro,
+        sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #E4E4E4;
+}
+
+// loader
+.loading {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 3000;
+    top: 0;
+    left: 0;
+    background-color: black;
+    opacity: 1;
+}
+
+.fade-enter-active {
+    transition: opacity 0.5s;
+}
+
+.fade-leave-active {
+    transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}

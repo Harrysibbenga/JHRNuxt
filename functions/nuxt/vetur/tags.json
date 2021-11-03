@@ -1,0 +1,56 @@
+{
+  "HeadFooter": {
+    "description": "Auto imported from components/Header-footer/Footer.vue"
+  },
+  "HeadHeader": {
+    "description": "Auto imported from components/Header-footer/Header.vue"
+  },
+  "HomeCalendar": {
+    "description": "Auto imported from components/PageComponents/Calendar.vue"
+  },
+  "HomeContact": {
+    "description": "Auto imported from components/PageComponents/Contact.vue"
+  },
+  "HomePromo": {
+    "description": "Auto imported from components/PageComponents/Promo.vue"
+  },
+  "HomeSocial": {
+    "description": "Auto imported from components/PageComponents/Social.vue"
+  },
+  "HomeSocial2": {
+    "description": "Auto imported from components/PageComponents/Social2.vue"
+  },
+  "HomeStayConnected": {
+    "description": "Auto imported from components/PageComponents/StayConnected.vue"
+  },
+  "HomeVideo": {
+    "description": "Auto imported from components/PageComponents/Video.vue"
+  },
+  "UiLoader": {
+    "description": "Auto imported from components/UI/Loader.vue"
+  },
+  "UiMessage": {
+    "description": "Auto imported from components/UI/Message.vue"
+  },
+  "UiSelectVideo": {
+    "description": "Auto imported from components/UI/SelectVideo.vue"
+  },
+  "UiTimer": {
+    "description": "Auto imported from components/UI/Timer.vue"
+  },
+  "UiAppEditor2": {
+    "description": "Auto imported from components/UI/appEditor2.vue"
+  },
+  "UiImageUpload": {
+    "description": "Auto imported from components/UI/imageUpload.vue"
+  },
+  "UiNewsImage": {
+    "description": "Auto imported from components/UI/newsImage.vue"
+  },
+  "UiPartners": {
+    "description": "Auto imported from components/UI/partners.vue"
+  },
+  "UiProfileImage": {
+    "description": "Auto imported from components/UI/profileImage.vue"
+  }
+}
